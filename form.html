@@ -45,27 +45,175 @@
     <div class="bg-body-tertiary p-5 rounded">
       <h1>Űrlap</h1>
       <p class="lead">Minta űrlap egy kis validációval</p>
-      <form>
+      <form id="form">
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="row">
+            <div class="col-sm-10">
+              <label for="inputEmail1">Email cím</label>
+              <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp"
+                placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="col-sm-2">
+              <img src="./img/form-2.webp" alt="form-2.webp" class="img-fluid" width="200px" id="img_not_anyone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputFirstName">Keresztnév</label>
+            <input type="text" class="form-control" id="inputFirstName" placeholder="Enter First name">
+          </div>
+          <div class="form-group">
+            <label for="inputLastName">Vezetéknév</label>
+            <input type="text" class="form-control" id="inputLastName" placeholder="Enter Last name">
+          </div>
+          <div class="form-group">
+            <label for="inputCatName">Macskám neve</label>
+            <input type="text" class="form-control" id="inputCatName" placeholder="My cats name">
+          </div>
+          <div class="row d-none" id="catNameImage">
+            <div class="col-sm-12">
+              <img src="./img/form-3.webp" alt="form-2.webp" class="img-fluid" width="200px">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputCatAge">Macskám kora</label>
+            <input type="number" class="form-control" id="inputCatAge" placeholder="My cats age">
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="checkbox">
+            <label class="form-check-label" for="checkbox">
+              Igen, ember vagyok. Igen, ezt tényleg én csináltam. Igen, kattintok most.
+              <img src="./img/form-1.webp" alt="form-1.webp" class="img-fluid" width="200px">
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Elküld</button>
       </form>
+
+      <p class="mt-5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin scelerisque eget massa sed laoreet. Aliquam quis
+        nulla euismod augue accumsan mattis quis quis justo. Vivamus tempor justo enim. Cras tempor, lorem ut facilisis
+        volutpat, ipsum felis consectetur dui, ullamcorper vulputate est erat vel justo. Mauris lobortis malesuada nisi,
+        ut tincidunt neque commodo eget. Suspendisse potenti. Sed at porta dui, iaculis lobortis est.
+      </p>
+      <p>
+        Cras non fermentum metus, eget hendrerit lorem. Etiam non efficitur ex. Donec tincidunt, lacus nec aliquet
+        tincidunt, lacus odio auctor odio, eget feugiat dolor magna in ligula. Duis turpis diam, laoreet id faucibus
+        vel, vehicula nec libero. Mauris sed turpis nisl. Aenean eget nibh sed nulla rutrum lacinia at quis dui.
+        Maecenas augue est, dignissim ut dui nec, accumsan hendrerit leo. Pellentesque dignissim, massa sed efficitur
+        consequat, lorem mauris auctor tellus, et venenatis mauris nibh in lectus. Donec diam erat, facilisis eu nulla
+        eget, porttitor gravida felis. Aenean sit amet nibh orci. Phasellus facilisis augue et erat pellentesque
+        ullamcorper. Curabitur nec ligula ipsum. Nulla et cursus dolor. Etiam quis ultrices ligula, sit amet gravida
+        dolor. Sed ac efficitur lorem. Donec elementum facilisis turpis vitae mollis.
+      </p>
+      <p>
+        Aliquam vehicula sollicitudin orci eu consequat. Nunc at ullamcorper tortor, nec volutpat orci. Fusce feugiat
+        vehicula semper. Nam ante purus, feugiat in tincidunt vitae, pulvinar a leo. Nulla id mauris ac metus hendrerit
+        condimentum. Donec augue quam, placerat sed ligula sit amet, consectetur condimentum mauris. Aenean aliquet
+        scelerisque diam, sed malesuada tortor fermentum vel. Maecenas consequat velit non massa molestie, id vestibulum
+        mauris convallis. Donec ac augue dictum, vulputate magna sit amet, malesuada dui. Nunc felis neque, cursus non
+        metus eu, tincidunt finibus lorem. Aliquam erat volutpat. Maecenas consequat in elit eget laoreet.
+      </p>
+
+
+      </p>
   </main>
 
-  <script defer src="./js/jquery-3.7.1.min.js"></script>
+  <style>
+    #checkbox {
+      margin-top: 90px;
+    }
+
+    #img_not_anyone {
+      opacity: 0.2;
+      transition: opacity 0.5s ease;
+    }
+
+    #img_not_anyone:hover {
+      opacity: 1;
+    }
+  </style>
+
+  <script src="./js/jquery-3.7.1.min.js"></script>
   <script defer src="./js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(function () {
+      $("#form").on("submit", function (e) {
+        e.preventDefault();
+        let everythingOk = true;
+
+        //email
+        let emailInput = $("#inputEmail1");
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.val())) {
+          emailInput.css('border-color', 'green');
+        } else {
+          emailInput.css('border-color', 'red');
+          everythingOk = false;
+        }
+
+        //first name
+        let firstNameInput = $("#inputFirstName");
+        if (firstNameInput.val().length >= 10) {
+          firstNameInput.css('border-color', 'green');
+        } else {
+          firstNameInput.css('border-color', 'red');
+          everythingOk = false;
+        }
+
+        //last name
+        let lastNameInput = $("#inputLastName");
+        if (lastNameInput.val().length >= 10) {
+          lastNameInput.css('border-color', 'green');
+        } else {
+          lastNameInput.css('border-color', 'red');
+          everythingOk = false;
+        }
+        //cat name
+        let catNameInput = $("#inputCatName");
+        if (catNameInput.val().length >= 10) {
+          catNameInput.css('border-color', 'green');
+        } else {
+          catNameInput.css('border-color', 'red');
+          everythingOk = false;
+        }
+
+        //cat age
+        let catAgeInput = $("#inputCatAge");
+        if (catAgeInput.val() >= 0 && catAgeInput.val() <= 20) {
+          catAgeInput.css('border-color', 'green');
+        } else {
+          catAgeInput.css('border-color', 'red');
+          everythingOk = false;
+        }
+
+        //checkbox
+        let checkboxInput = $("#checkbox");
+        if (checkboxInput.is(":checked")) {
+          checkboxInput.css('border-color', 'green');
+        } else {
+          checkboxInput.css('border-color', 'red');
+          everythingOk = false;
+        }
+
+        //submit
+        if (everythingOk) {
+          alert("Minden rendben, elküldöm az űrlapot!");
+          $("#form").trigger("reset");
+          // Itt lehetne AJAX hívást is csinálni
+        } else {
+          alert("Kérlek töltsd ki az összes mezőt helyesen!");
+        }
+
+      });
+
+      $("#inputCatName").on("input", function () {
+        let catName = $(this).val();
+        if (catName.length >= 10) {
+          $("#catNameImage").removeClass('d-none');
+        }
+      });
+    });
+  </script>
 
 </body>
 
