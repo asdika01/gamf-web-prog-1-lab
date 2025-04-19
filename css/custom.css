@@ -1,5 +1,14 @@
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
     .navbar-brand {
         font-size: 15px;
     }
+}
+
+img {
+    transition: all 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+    border-radius: 5px;
 }
