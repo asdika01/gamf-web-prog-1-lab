@@ -12,3 +12,15 @@ img:hover {
     transform: scale(1.05);
     border-radius: 5px;
 }
+
+.nav-link.active {
+    text-shadow: 0 0 20px #FFFFFF;
+}
+
+.nav-link.active:hover {
+    text-shadow: 0 0 3px #FFFFFF;
+}
+
+nav.navbar {
+    box-shadow: 0 0 7px 5px #000000;
+}
