@@ -180,7 +180,7 @@
 
         //cat age
         let catAgeInput = $("#inputCatAge");
-        if (catAgeInput.val() >= 0 && catAgeInput.val() <= 20) {
+        if (catAgeInput.val() != "" && catAgeInput.val() >= 0 && catAgeInput.val() <= 20) {
           catAgeInput.css('border-color', 'green');
         } else {
           catAgeInput.css('border-color', 'red');
